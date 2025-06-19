@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link ref="stylesheet" href="cubeport.css" />
+  </head>
+  <body>
+    <div class="scene">
+      <div class="cube" id="cube">
+        <div class="face front">Front</div>
+        <div class="face back">Back</div>
+        <div class="face right">Right</div>
+        <div class="face left">Left</div>
+        <div class="face top">Top</div>
+        <div class="face bottom">Bottom</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button onclick="rotateCube('x', 90)">Rotate X</button>
+      <button onclick="rotateCube('y', 90)">Rotate Y</button>
+      <button onclick="rotateCube('z', 90)">Rotate Z</button>
+    </div>
+    <script>
+      let xRotation = 0;
+      let yRotation = 0;
+      let zRotation = 0;
+
+      function rotateCube(axis, degree) {
+        if (axis === "x") xRotation += degree;
+        if (axis === "y") yRotation += degree;
+        if (axis === "z") zRotation += degree;
+
+        document.getElementById(
+          "cube"
+        ).style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg) rotateZ(${zRotation}deg)`;
+      }
+    </script>
+  </body>
+</html>
